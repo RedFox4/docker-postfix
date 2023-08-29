@@ -121,7 +121,7 @@ localhost
 *.$maildomain
 EOF
 cat >> /etc/opendkim/KeyTable <<EOF
-$keyselector._domainkey.$maildomain $maildomain:mail:$(find /etc/opendkim/domainkeys -iname $keyselector.private)
+$keyselector._domainkey.$maildomain $maildomain:$keyselector:$(find /etc/opendkim/domainkeys -iname $keyselector.private)
 EOF
 cat >> /etc/opendkim/SigningTable <<EOF
 *@$maildomain $keyselector._domainkey.$maildomain
